@@ -2,1443 +2,984 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>역량 중심 성장형 수학 교원 연수 플랫폼</title>
+  <title>역량 중심 성장형 수학 교원 연수 플랫폼(예시)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     :root {
-      --primary: #1a73e8;
-      --primary-dark: #1557ad;
-      --accent: #00c389;
       --bg: #f5f7fb;
-      --text-main: #222;
-      --text-muted: #666;
-      --card-bg: #ffffff;
-      --border-light: #e1e5f0;
-      --danger: #e53935;
-      --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.08);
-      --radius-lg: 16px;
-      --radius-xl: 22px;
-      --transition-fast: 0.2s ease;
+      --card: #ffffff;
+      --primary: #2563eb;
+      --primary-soft: #dbeafe;
+      --accent: #0f766e;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --danger: #b91c1c;
     }
 
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Noto Sans KR",
-        sans-serif;
-      background: var(--bg);
-      color: var(--text-main);
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #e5f0ff, #f9fafb 55%);
+      color: var(--text);
       line-height: 1.5;
     }
 
     a {
+      color: var(--primary);
       text-decoration: none;
-      color: inherit;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    /* Layout */
-    .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
     }
 
     header {
       position: sticky;
       top: 0;
-      z-index: 50;
-      background: rgba(245, 247, 251, 0.94);
+      z-index: 20;
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border-light);
+      background: rgba(249, 250, 251, 0.9);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.8);
     }
 
     .nav {
-      max-width: 1160px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 0.6rem 1.25rem;
+      padding: 0.8rem 1.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1.5rem;
     }
 
-    .nav-left {
+    .brand {
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.03em;
+      color: var(--primary);
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.4rem;
     }
 
-    .logo-mark {
-      width: 36px;
-      height: 36px;
-      border-radius: 11px;
-      background: radial-gradient(circle at 20% 20%, #4cc9f0, #4361ee);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 0.9rem;
-      font-weight: 700;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .logo-text {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .logo-text-main {
-      font-size: 0.95rem;
-      font-weight: 700;
-    }
-
-    .logo-text-sub {
-      font-size: 0.72rem;
-      color: var(--text-muted);
+    .brand span.logo-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: inline-block;
     }
 
     .nav-links {
       display: flex;
-      align-items: center;
       gap: 1rem;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
     }
 
     .nav-links a {
-      padding: 0.4rem 0.65rem;
+      padding: 0.25rem 0.5rem;
       border-radius: 999px;
-      color: var(--text-muted);
-      transition: background var(--transition-fast), color var(--transition-fast),
-        transform var(--transition-fast);
     }
 
     .nav-links a:hover {
-      background: #e3edff;
-      color: var(--primary-dark);
-      transform: translateY(-1px);
-    }
-
-    .nav-links a.active {
-      background: var(--primary);
-      color: #fff;
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .btn {
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      padding: 0.45rem 0.9rem;
-      font-size: 0.85rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      transition: background var(--transition-fast), color var(--transition-fast),
-        box-shadow var(--transition-fast), transform var(--transition-fast),
-        border-color var(--transition-fast);
-      font-weight: 500;
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1px solid var(--border-light);
-      color: var(--text-muted);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--primary);
-      color: var(--primary-dark);
-      background: #e8f0ff;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: #fff;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .btn-primary:hover {
-      background: var(--primary-dark);
-      transform: translateY(-1px);
-      box-shadow: 0 14px 30px rgba(26, 115, 232, 0.3);
+      background: var(--primary-soft);
     }
 
     main {
-      flex: 1;
+      max-width: 1120px;
+      margin: 1.5rem auto 3rem;
+      padding: 0 1.5rem 3rem;
     }
 
-    .section {
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 1.75rem 1.25rem;
-    }
-
-    .section + .section {
-      margin-top: 0.2rem;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 1.1rem;
-    }
-
-    .section-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-    }
-
-    .section-subtitle {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    /* Hero */
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-      gap: 1.7rem;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 2rem;
       align-items: center;
-      padding-top: 2rem;
-      padding-bottom: 1.8rem;
+      margin-bottom: 2.5rem;
     }
 
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.18rem 0.6rem;
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .hero-text h1 {
+      font-size: 1.9rem;
+      margin: 0 0 0.7rem;
+    }
+
+    .hero-text p {
+      margin: 0.2rem 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .hero-badges {
+      margin-top: 0.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.6rem;
       border-radius: 999px;
-      background: #e0f5ec;
-      color: #067a55;
-      font-size: 0.72rem;
-      font-weight: 600;
-      margin-bottom: 0.65rem;
-    }
-
-    .hero-tag span {
-      font-size: 0.9rem;
-    }
-
-    .hero-title {
-      font-size: 1.8rem;
-      line-height: 1.35;
-      letter-spacing: -0.03em;
-      margin-bottom: 0.7rem;
-    }
-
-    .hero-title strong {
-      color: var(--primary-dark);
-    }
-
-    .hero-desc {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 1rem;
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--muted);
     }
 
     .hero-actions {
+      margin-top: 1.2rem;
       display: flex;
       flex-wrap: wrap;
       gap: 0.7rem;
-      margin-bottom: 1rem;
     }
 
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    .hero-meta-item {
-      display: flex;
+    .btn-primary, .btn-outline {
+      display: inline-flex;
       align-items: center;
-      gap: 0.3rem;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+      text-decoration: none;
     }
 
-    .hero-meta-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--accent);
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #1d4ed8);
+      color: white;
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.25);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.03);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: white;
+      border-color: var(--border);
+      color: var(--muted);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary-soft);
+      color: var(--primary);
+      border-color: var(--primary-soft);
     }
 
     .hero-card {
-      background: radial-gradient(circle at 0% 0%, #f4f7ff, #ffffff);
-      border-radius: 26px;
-      padding: 1.3rem 1.2rem 1.1rem;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid #dde4ff;
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 1.25rem;
+      padding: 1.3rem 1.4rem;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+      border: 1px solid rgba(229, 231, 235, 0.9);
     }
 
-    .hero-card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 0.7rem;
+    .hero-card h2 {
+      font-size: 1.05rem;
+      margin-top: 0;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-card p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .hero-stats {
+      margin-top: 0.9rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.6rem;
+    }
+
+    .hero-stat {
+      background: var(--bg);
+      border-radius: 0.9rem;
+      padding: 0.6rem 0.7rem;
+      font-size: 0.8rem;
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 0.86rem;
+    }
+
+    .section {
+      margin-top: 2.5rem;
+    }
+
+    .section-header {
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: 1.25rem;
+    }
+
+    .section-subtitle {
+      margin: 0.25rem 0 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 1.25rem;
+      padding: 1.4rem 1.4rem 1.6rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 25px rgba(15, 23, 42, 0.04);
     }
 
     .pill {
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
-      padding: 0.25rem 0.6rem;
+      gap: 0.3rem;
+      padding: 0.2rem 0.6rem;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.85);
-      border: 1px solid var(--border-light);
-      font-size: 0.72rem;
-      color: var(--text-muted);
-    }
-
-    .pill-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--primary);
-    }
-
-    .hero-score {
-      font-size: 0.8rem;
-      text-align: right;
-    }
-
-    .hero-score span {
-      font-weight: 700;
-      color: var(--primary-dark);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.5rem;
-      margin-bottom: 0.7rem;
-      font-size: 0.78rem;
-    }
-
-    .hero-grid-card {
-      background: rgba(255, 255, 255, 0.85);
-      border-radius: 14px;
-      padding: 0.5rem 0.55rem;
-      border: 1px solid rgba(209, 213, 219, 0.7);
-    }
-
-    .hero-grid-label {
-      color: var(--text-muted);
-      font-size: 0.72rem;
-      margin-bottom: 0.18rem;
-    }
-
-    .hero-grid-value {
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
-
-    .hero-progress {
-      margin-top: 0.3rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .progress-label {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      margin-bottom: 0.15rem;
-    }
-
-    .progress-bar {
-      width: 100%;
-      height: 7px;
-      background: #e5edff;
-      border-radius: 999px;
-      overflow: hidden;
-    }
-
-    .progress-fill {
-      height: 100%;
-      width: 68%;
-      background: linear-gradient(90deg, #1a73e8, #00c389);
-      border-radius: 999px;
-    }
-
-    .hero-footnote {
-      font-size: 0.7rem;
-      color: var(--text-muted);
-    }
-
-    /* Cards / grids */
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.9rem;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.9rem;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border-radius: var(--radius-lg);
-      padding: 0.9rem 1rem;
-      border: 1px solid #e2e8f0;
-      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
-    }
-
-    .card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 0.5rem;
-    }
-
-    .card-title {
-      font-size: 0.92rem;
-      font-weight: 600;
-    }
-
-    .card-badge {
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      background: #edf2ff;
-      padding: 0.15rem 0.45rem;
-      border-radius: 999px;
-    }
-
-    .card-body {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    /* Diagnosis section */
-    .diagnosis-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-      gap: 1rem;
-    }
-
-    .form-group {
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: 0.75rem;
       margin-bottom: 0.6rem;
     }
 
-    .form-label {
-      font-size: 0.78rem;
-      font-weight: 600;
-      margin-bottom: 0.22rem;
-      display: block;
+    .legend {
+      font-size: 0.83rem;
+      color: var(--muted);
+      padding: 0.55rem 0.75rem;
+      border-radius: 0.75rem;
+      background: #f9fafb;
+      border: 1px dashed #e5e7eb;
+      margin-bottom: 0.9rem;
     }
 
-    .form-label span {
+    .competency-group {
+      margin-top: 1.4rem;
+      padding-top: 1.1rem;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .competency-title {
+      font-size: 1rem;
+      margin: 0 0 0.2rem;
+    }
+
+    .competency-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin: 0 0 0.6rem;
+    }
+
+    .stage-label {
+      font-size: 0.8rem;
+      font-weight: 600;
       color: var(--accent);
-      font-weight: 700;
-      font-size: 0.8rem;
+      margin: 0.6rem 0 0.2rem;
     }
 
-    .select,
-    .input-range {
-      width: 100%;
-      padding: 0.45rem 0.55rem;
-      border-radius: 10px;
-      border: 1px solid #d4dbe7;
-      font-size: 0.8rem;
+    .question {
+      margin: 0.25rem 0 0.4rem;
+      padding: 0.4rem 0.4rem 0.35rem;
+      border-radius: 0.6rem;
     }
 
-    .input-range {
-      cursor: pointer;
-    }
-
-    .range-meta {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      margin-top: 0.1rem;
-    }
-
-    .diagnosis-result {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .diagnosis-highlight {
-      margin-top: 0.45rem;
-      padding: 0.45rem 0.55rem;
-      border-radius: 10px;
-      background: #f1f5ff;
-      border: 1px dashed #c7d2fe;
-      font-size: 0.78rem;
-    }
-
-    .pill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.3rem;
-      margin-top: 0.4rem;
-    }
-
-    .pill-tag {
-      padding: 0.18rem 0.5rem;
-      font-size: 0.7rem;
-      border-radius: 999px;
-      border: 1px solid #cbd5e1;
-      background: #f8fafc;
-    }
-
-    /* Module list */
-    .module-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-      margin-top: 0.2rem;
-    }
-
-    .module-item {
-      display: grid;
-      grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.8fr) auto;
-      gap: 0.5rem;
-      align-items: center;
-      padding: 0.55rem 0.7rem;
-      border-radius: 12px;
-      border: 1px solid #e2e8f0;
-      background: #ffffff;
-    }
-
-    .module-title {
-      font-size: 0.84rem;
-      font-weight: 600;
-      margin-bottom: 0.15rem;
-    }
-
-    .module-meta {
-      font-size: 0.72rem;
-      color: var(--text-muted);
-    }
-
-    .module-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.25rem;
-      font-size: 0.7rem;
-    }
-
-    .module-tag {
-      padding: 0.15rem 0.45rem;
-      border-radius: 999px;
-      background: #f1f5f9;
-      color: var(--text-muted);
-    }
-
-    .module-level {
-      font-size: 0.78rem;
-      text-align: center;
-    }
-
-    .module-level span {
-      display: inline-block;
-      margin-bottom: 0.18rem;
-      padding: 0.15rem 0.5rem;
-      border-radius: 999px;
-      background: #e0f2fe;
-      color: #0369a1;
-      font-size: 0.7rem;
-    }
-
-    /* Growth record */
-    .timeline {
-      list-style: none;
-      border-left: 2px solid #e2e8f0;
-      padding-left: 0.9rem;
-      margin-top: 0.5rem;
-    }
-
-    .timeline-item {
-      margin-bottom: 0.55rem;
-      position: relative;
-    }
-
-    .timeline-dot {
-      position: absolute;
-      left: -1.08rem;
-      top: 0.2rem;
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--primary);
-      box-shadow: 0 0 0 3px #e0ecff;
-    }
-
-    .timeline-title {
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-
-    .timeline-meta {
-      font-size: 0.72rem;
-      color: var(--text-muted);
-    }
-
-    .timeline-desc {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      margin-top: 0.1rem;
-    }
-
-    .badge-soft {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      padding: 0.2rem 0.5rem;
-      font-size: 0.7rem;
-      border-radius: 999px;
-      background: #fef3c7;
-      color: #92400e;
-      margin-top: 0.35rem;
-    }
-
-    /* Admin */
-    .stat-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 0.6rem;
-      margin-top: 0.4rem;
-    }
-
-    .stat-card {
-      padding: 0.55rem 0.65rem;
-      border-radius: 10px;
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      font-size: 0.75rem;
-    }
-
-    .stat-label {
-      color: var(--text-muted);
-      margin-bottom: 0.18rem;
-    }
-
-    .stat-value {
-      font-size: 0.9rem;
-      font-weight: 700;
-    }
-
-    .stat-chip {
-      margin-top: 0.2rem;
-      font-size: 0.7rem;
-      color: #0f766e;
-      background: #ccfbf1;
-      padding: 0.15rem 0.45rem;
-      border-radius: 999px;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.25rem;
-    }
-
-    .admin-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-top: 0.5rem;
-      font-size: 0.75rem;
-    }
-
-    .admin-chip {
-      padding: 0.25rem 0.55rem;
-      border-radius: 999px;
-      border: 1px dashed #cbd5e1;
+    .question:nth-child(odd) {
       background: #f9fafb;
     }
 
-    footer {
-      border-top: 1px solid var(--border-light);
-      margin-top: 1.5rem;
-      background: #f8fafc;
+    .question-text {
+      margin: 0 0 0.25rem;
+      font-size: 0.88rem;
     }
 
-    .footer-inner {
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 0.9rem 1.25rem 1.3rem;
-      display: flex;
-      justify-content: space-between;
+    .q-code {
+      font-weight: 600;
+      color: var(--muted);
+      margin-right: 0.2rem;
+    }
+
+    .scale {
+      display: inline-flex;
+      gap: 0.3rem;
+      font-size: 0.78rem;
       align-items: center;
-      gap: 1rem;
-      font-size: 0.75rem;
-      color: var(--text-muted);
     }
 
-    .footer-links {
+    .scale label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.15rem;
+      padding: 0.15rem 0.3rem;
+      border-radius: 999px;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .scale input[type="radio"] {
+      accent-color: var(--primary);
+      transform: scale(0.95);
+    }
+
+    .scale label:hover {
+      background: var(--primary-soft);
+      border-color: var(--primary-soft);
+    }
+
+    .actions-inline {
+      margin-top: 1.1rem;
       display: flex;
       flex-wrap: wrap;
       gap: 0.6rem;
+      align-items: center;
     }
 
-    .footer-links a {
-      text-decoration: underline;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 2px;
+    .btn-small {
+      padding: 0.45rem 0.95rem;
+      font-size: 0.82rem;
+      border-radius: 999px;
+      border: 1px solid var(--primary);
+      background: white;
+      color: var(--primary);
+      cursor: pointer;
     }
 
-    /* Responsive */
-    @media (max-width: 960px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .diagnosis-layout {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .grid-3 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .module-item {
-        grid-template-columns: minmax(0, 1fr);
-        align-items: flex-start;
-      }
-
-      .nav-links {
-        display: none;
-      }
+    .btn-small.primary {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
     }
 
-    @media (max-width: 640px) {
-      .grid-3,
-      .grid-2 {
-        grid-template-columns: minmax(0, 1fr);
-      }
+    .btn-small:hover {
+      filter: brightness(1.03);
+    }
 
-      .section {
-        padding-inline: 1rem;
-      }
+    .result-box {
+      margin-top: 1rem;
+      padding: 0.7rem 0.8rem;
+      border-radius: 0.9rem;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      font-size: 0.85rem;
+    }
 
-      .hero-title {
-        font-size: 1.45rem;
-      }
+    .result-title {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
 
-      .hero-card {
-        border-radius: 20px;
-      }
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.35rem 0.9rem;
+    }
 
-      .footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+    .result-item {
+      font-size: 0.83rem;
+    }
+
+    .result-item span.label {
+      color: var(--muted);
+    }
+
+    .warning {
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--danger);
+    }
+
+    .summary-line {
+      margin-top: 0.45rem;
+      font-size: 0.83rem;
+    }
+
+    footer {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.78rem;
+      color: var(--muted);
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <!-- 헤더 / 내비게이션 -->
-    <header>
-      <nav class="nav">
-        <div class="nav-left">
-          <div class="logo-mark">M</div>
-          <div class="logo-text">
-            <span class="logo-text-main">수학 교원 연수 플랫폼</span>
-            <span class="logo-text-sub">역량 중심 성장형 모듈 연수</span>
-          </div>
-        </div>
-        <div class="nav-links">
-          <a href="#hero" class="active">대시보드</a>
-          <a href="#diagnosis">역량 진단</a>
-          <a href="#modules">추천 모듈</a>
-          <a href="#growth">성장 기록부</a>
-          <a href="#admin">관리자</a>
-        </div>
-        <div class="nav-right">
-          <button class="btn btn-outline" type="button">
-            체험 계정
-          </button>
-          <button class="btn btn-primary" type="button">
-            교원 로그인
-          </button>
-        </div>
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <span class="logo-dot"></span>
+        역량 중심 성장형 수학 교원 연수 플랫폼(예시)
+      </div>
+      <nav class="nav-links">
+        <a href="#diagnostic-tool">역량 진단 도구</a>
+        <a href="#modules">모듈형 연수</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <main>
-      <!-- 히어로 / 요약 대시보드 -->
-      <section class="section" id="hero">
-        <div class="hero">
-          <div>
-            <div class="hero-tag">
-              <span>●</span> 진단–추천–이수–성찰을 한 번에
-            </div>
-            <h1 class="hero-title">
-              <strong>역량 기반</strong> 모듈형 연수로<br />
-              수학 수업 설계·코칭 전문성의
-              <strong>지속적 성장</strong>을 지원합니다.
-            </h1>
-            <p class="hero-desc">
-              교원의 수학 수업 설계 및 코칭 역량을 정교하게 진단하고,<br />
-              진단 결과에 기반한 맞춤형 모듈 연수를 추천하는 통합형 플랫폼 예시입니다.
-            </p>
-            <div class="hero-actions">
-              <button class="btn btn-primary" type="button">
-                역량 진단 시작하기
-              </button>
-              <button class="btn btn-outline" type="button">
-                플랫폼 소개 보기
-              </button>
-            </div>
-            <div class="hero-meta">
-              <div class="hero-meta-item">
-                <div class="hero-meta-dot"></div>
-                <span>학교급별(초·중·고) 역량 체계 반영</span>
-              </div>
-              <div class="hero-meta-item">
-                <div class="hero-meta-dot"></div>
-                <span>AI·디지털, 수업 설계, 코칭, 성찰 역량 통합</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="hero-card">
-            <div class="hero-card-header">
-              <div class="pill">
-                <span class="pill-dot"></span>
-                나의 수학 교원 역량 요약
-              </div>
-              <div class="hero-score">
-                종합 지수 <span id="overallScore">78점</span><br />
-                <span style="font-size: 0.7rem">(상위 32%)</span>
-              </div>
-            </div>
-            <div class="hero-grid">
-              <div class="hero-grid-card">
-                <div class="hero-grid-label">수학 내용 지식 탐구</div>
-                <div class="hero-grid-value">83</div>
-                <div style="font-size: 0.7rem; color: var(--text-muted)">
-                  심화 과제 추천 2개
-                </div>
-              </div>
-              <div class="hero-grid-card">
-                <div class="hero-grid-label">수업 설계·실행</div>
-                <div class="hero-grid-value">71</div>
-                <div style="font-size: 0.7rem; color: var(--text-muted)">
-                  개선 권장 영역
-                </div>
-              </div>
-              <div class="hero-grid-card">
-                <div class="hero-grid-label">AI·디지털 활용</div>
-                <div class="hero-grid-value">64</div>
-                <div style="font-size: 0.7rem; color: var(--danger)">
-                  집중 지원 필요
-                </div>
-              </div>
-            </div>
-            <div class="hero-progress">
-              <div class="progress-label">
-                <span>연간 성장 달성도</span>
-                <span id="growthPercent">68%</span>
-              </div>
-              <div class="progress-bar">
-                <div class="progress-fill" id="growthBar"></div>
-              </div>
-            </div>
-            <div class="hero-footnote">
-              진단 결과를 바탕으로 <strong>AI·디지털 수업 설계</strong>,
-              <strong>학습 코칭·상담</strong>, <strong>수업 성찰</strong> 영역의
-              모듈형 연수 경로를 추천합니다.
-            </div>
-          </div>
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1>수학 교원 역량 진단 기반<br/>모듈형 연수 통합 플랫폼(예시)</h1>
+        <p>AI·디지털 전환기에 대응하는 수학 교원의 전문성 진단-설계-운영-환류 체제 구축을 위한 통합형 홈페이지 예시입니다.</p>
+        <p>아래 버튼을 통해 본 연구에서 개발한 <strong>역량 진단 도구(MTCDT)</strong>를 실제로 응답하고, 자동으로 진단 결과를 확인할 수 있습니다.</p>
+        <div class="hero-badges">
+          <span class="badge">초·중·고 수학 교원 대상</span>
+          <span class="badge">5개 역량군 · 45문항</span>
+          <span class="badge">역량 기반 모듈 추천 연계</span>
         </div>
-      </section>
-
-      <!-- 주요 기능 카드 -->
-      <section class="section">
-        <div class="section-header">
-          <div>
-            <div class="section-title">플랫폼 핵심 기능</div>
-            <div class="section-subtitle">
-              진단, 추천, 이수, 관리, 성찰이 하나의 흐름으로 설계됩니다.
-            </div>
-          </div>
-        </div>
-        <div class="grid-3">
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title">역량 진단 · 프로파일링</div>
-              <span class="card-badge">핵심 기능 ①</span>
-            </div>
-            <div class="card-body">
-              수학 교원 역량 진단 도구를 온라인으로 응답하면,
-              <strong>역량군·행동지표 단위</strong>의 정교한 프로파일이 자동 생성됩니다.
-              진단 결과는 추천 모듈과 성장 기록부에 연동됩니다.
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title">맞춤형 모듈 추천</div>
-              <span class="card-badge">핵심 기능 ②</span>
-            </div>
-            <div class="card-body">
-              교사의 현재 수준과 요구를 반영하여
-              <strong>이해–활용–성찰 단계별</strong> 모듈형 연수를 추천합니다.
-              Lesson Study, 교원학습공동체 활동과도 연계 가능하도록 설계합니다.
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title">성장 기록 · 정책 데이터</div>
-              <span class="card-badge">핵심 기능 ③</span>
-            </div>
-            <div class="card-body">
-              개인별 성장 포트폴리오를 자동 축적하고, 시도교육청·국가 수준에서
-              <strong>연수 성과·수요 분석</strong>을 위한 데이터로 활용할 수 있습니다.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 역량 진단 섹션 -->
-      <section class="section" id="diagnosis">
-        <div class="section-header">
-          <div>
-            <div class="section-title">역량 진단(샘플)</div>
-            <div class="section-subtitle">
-              정식 진단 도구를 온라인 설문 형태로 탑재하고, 결과를 대시보드와 연동합니다.
-            </div>
-          </div>
-        </div>
-
-        <div class="diagnosis-layout">
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title">간단 진단 예시</div>
-              <span class="card-badge">Demo</span>
-            </div>
-            <div class="card-body">
-              <div class="form-group">
-                <label class="form-label" for="schoolLevel">학교급 선택</label>
-                <select id="schoolLevel" class="select">
-                  <option value="elem">초등학교</option>
-                  <option value="mid">중학교</option>
-                  <option value="high">고등학교</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="expYears">교직 경력</label>
-                <select id="expYears" class="select">
-                  <option value="0-3">0–3년</option>
-                  <option value="4-9">4–9년</option>
-                  <option value="10-19">10–19년</option>
-                  <option value="20+">20년 이상</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="digitalScore">
-                  AI·디지털 수업 활용 자신도 <span>(1–5)</span>
-                </label>
-                <input
-                  id="digitalScore"
-                  class="input-range"
-                  type="range"
-                  min="1"
-                  max="5"
-                  value="3"
-                  oninput="updateDiagnosis()"
-                />
-                <div class="range-meta">
-                  <span>낮음</span>
-                  <span>높음</span>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label class="form-label" for="coachingScore">
-                  수학 학습 상담·코칭 자신도 <span>(1–5)</span>
-                </label>
-                <input
-                  id="coachingScore"
-                  class="input-range"
-                  type="range"
-                  min="1"
-                  max="5"
-                  value="4"
-                  oninput="updateDiagnosis()"
-                />
-                <div class="range-meta">
-                  <span>낮음</span>
-                  <span>높음</span>
-                </div>
-              </div>
-
-              <button
-                class="btn btn-primary"
-                style="margin-top: 0.4rem"
-                type="button"
-                onclick="updateDiagnosis(true)"
-              >
-                진단 결과 예시 보기
-              </button>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title">자동 생성 프로파일 예시</div>
-            </div>
-            <div class="card-body diagnosis-result" id="diagnosisResult">
-              간단한 슬라이더 조절만으로도 AI·디지털, 코칭 역량의
-              <strong>기초 프로파일</strong>이 생성됩니다.  
-              실제 플랫폼에서는 45문항 진단 결과를 기반으로 보다 정교한
-              레이더 차트, 성장 지수, 권장 모듈이 제시됩니다.
-
-              <div class="diagnosis-highlight">
-                • 주요 권장 영역: <strong>AI·디지털 수업 설계</strong><br />
-                • 추천 모듈 수: 3개<br />
-                • 권장 성장 단계: <strong>이해 → 활용</strong> 중심
-              </div>
-
-              <div class="pill-list">
-                <div class="pill-tag">AI 디지털교과서 기반 수업 설계</div>
-                <div class="pill-tag">수학 공학도구(GeoGebra 등) 활용</div>
-                <div class="pill-tag">학습 분석 데이터 해석</div>
-                <div class="pill-tag">학생 맞춤형 피드백 루틴 설계</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 추천 모듈 섹션 -->
-      <section class="section" id="modules">
-        <div class="section-header">
-          <div>
-            <div class="section-title">맞춤형 추천 모듈(예시)</div>
-            <div class="section-subtitle">
-              역량 진단 결과에 따라 이해–활용–성찰 단계별 모듈형 연수를 추천합니다.
-            </div>
-          </div>
-        </div>
-
-        <div class="grid-2">
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title">AI·디지털 기반 수업 설계</div>
-              <span class="card-badge">추천 모듈</span>
-            </div>
-            <div class="card-body">
-              <div class="module-list">
-                <div class="module-item">
-                  <div>
-                    <div class="module-title">
-                      [이해] AIDT를 활용한 수학 수업 구조 이해
-                    </div>
-                    <div class="module-meta">
-                      • 대상: 초·중등 수학 교사 공통 · 2시간  
-                      • 핵심 역량: AI·디지털 활용 이해, 수업 설계
-                    </div>
-                  </div>
-                  <div class="module-tags">
-                    <span class="module-tag">AI 디지털교과서</span>
-                    <span class="module-tag">플랫폼 이해</span>
-                  </div>
-                  <div class="module-level">
-                    <span>Lv.1 이해</span>
-                    <div>기초 이수 권장</div>
-                  </div>
-                </div>
-
-                <div class="module-item">
-                  <div>
-                    <div class="module-title">
-                      [활용] 학습 데이터 기반 맞춤형 수업 설계
-                    </div>
-                    <div class="module-meta">
-                      • 대상: 경력 4년 이상 · 3시간  
-                      • 핵심 역량: 데이터 기반 수업 조정, 코칭
-                    </div>
-                  </div>
-                  <div class="module-tags">
-                    <span class="module-tag">학습 분석</span>
-                    <span class="module-tag">수업 조정</span>
-                  </div>
-                  <div class="module-level">
-                    <span>Lv.2 활용</span>
-                    <div>집중 심화 권장</div>
-                  </div>
-                </div>
-
-                <div class="module-item">
-                  <div>
-                    <div class="module-title">
-                      [성찰] AIDT 수업 영상 기반 Lesson Study
-                    </div>
-                    <div class="module-meta">
-                      • 대상: 교원학습공동체 · 4시간(2회기)  
-                      • 핵심 역량: 성찰, 동료 코칭, 수업 재설계
-                    </div>
-                  </div>
-                  <div class="module-tags">
-                    <span class="module-tag">Lesson Study</span>
-                    <span class="module-tag">수업 성찰</span>
-                  </div>
-                  <div class="module-level">
-                    <span>Lv.3 성찰</span>
-                    <div>협력형 모듈</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title">수학 학습 상담·코칭 모듈</div>
-              <span class="card-badge">추천 모듈</span>
-            </div>
-            <div class="card-body">
-              <div class="module-list">
-                <div class="module-item">
-                  <div>
-                    <div class="module-title">
-                      [이해] 수학 학습 부진 진단과 코칭의 기초
-                    </div>
-                    <div class="module-meta">
-                      • 대상: 초등 수학 담당 교사 · 2시간  
-                      • 핵심 역량: 학습 진단, 상담 기초
-                    </div>
-                  </div>
-                  <div class="module-tags">
-                    <span class="module-tag">기초학력</span>
-                    <span class="module-tag">학습 진단</span>
-                  </div>
-                  <div class="module-level">
-                    <span>Lv.1 이해</span>
-                    <div>필수</div>
-                  </div>
-                </div>
-
-                <div class="module-item">
-                  <div>
-                    <div class="module-title">
-                      [활용] 학생 질문·오류 기반 수업 코칭 전략
-                    </div>
-                    <div class="module-meta">
-                      • 대상: 중등 수학 교사 · 3시간  
-                      • 핵심 역량: 즉각 코칭, 발문 설계
-                    </div>
-                  </div>
-                  <div class="module-tags">
-                    <span class="module-tag">오개념</span>
-                    <span class="module-tag">발문</span>
-                  </div>
-                  <div class="module-level">
-                    <span>Lv.2 활용</span>
-                    <div>심화 선택</div>
-                  </div>
-                </div>
-
-                <div class="module-item">
-                  <div>
-                    <div class="module-title">
-                      [성찰] 수학 학습 코칭 사례 공유·피드백
-                    </div>
-                    <div class="module-meta">
-                      • 대상: 수학 교원학습공동체 · 3시간  
-                      • 핵심 역량: 사례 기반 성찰, 동료 피드백
-                    </div>
-                  </div>
-                  <div class="module-tags">
-                    <span class="module-tag">사례 나눔</span>
-                    <span class="module-tag">동료성찰</span>
-                  </div>
-                  <div class="module-level">
-                    <span>Lv.3 성찰</span>
-                    <div>공동체형</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 성장 기록부 섹션 -->
-      <section class="section" id="growth">
-        <div class="section-header">
-          <div>
-            <div class="section-title">나의 성장 기록부 예시</div>
-            <div class="section-subtitle">
-              역량 진단–연수 이수–수업 개선 사례–Lesson Study 결과를 통합적으로 기록합니다.
-            </div>
-          </div>
-        </div>
-
-        <div class="grid-2">
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title">연간 성장 타임라인</div>
-            </div>
-            <div class="card-body">
-              <ul class="timeline">
-                <li class="timeline-item">
-                  <div class="timeline-dot"></div>
-                  <div class="timeline-title">
-                    2025.03 역량 진단 1차 완료
-                  </div>
-                  <div class="timeline-meta">
-                    종합 지수 68점 · AI·디지털 역량 ‘개선 필요’ 판정
-                  </div>
-                  <div class="timeline-desc">
-                    진단 결과를 바탕으로 AI 디지털교과서 이해 모듈(이해 단계)을 이수하도록
-                    추천받음.
-                  </div>
-                </li>
-                <li class="timeline-item">
-                  <div class="timeline-dot"></div>
-                  <div class="timeline-title">
-                    2025.05 모듈 3개 이수 및 수업 설계 개편
-                  </div>
-                  <div class="timeline-meta">
-                    AI·디지털 수업 설계·코칭 관련 모듈 3개 이수
-                  </div>
-                  <div class="timeline-desc">
-                    학급별 학습 데이터 분석을 바탕으로 소집단 활동을 재구성하고, 문제 해결
-                    과정에서 디지털 도구 활용을 확대함.
-                  </div>
-                </li>
-                <li class="timeline-item">
-                  <div class="timeline-dot"></div>
-                  <div class="timeline-title">
-                    2025.09 Lesson Study 참여
-                  </div>
-                  <div class="timeline-meta">
-                    동료 교사 4인과 공동 수업 설계·관찰·성찰
-                  </div>
-                  <div class="timeline-desc">
-                    AIDT 데이터를 활용하여 학생별 오개념을 분석하고, 수업 후 피드백 루틴을
-                    수정하는 성찰 과정을 경험함.
-                  </div>
-                </li>
-                <li class="timeline-item">
-                  <div class="timeline-dot"></div>
-                  <div class="timeline-title">
-                    2025.12 역량 진단 2차 완료
-                  </div>
-                  <div class="timeline-meta">
-                    종합 지수 78점 · AI·디지털 역량 ‘기초 달성’ 판정
-                  </div>
-                  <div class="timeline-desc">
-                    ‘성찰 단계’ 모듈 이수 및 교원학습공동체 운영 경험이 성장 기록부에 축적됨.
-                  </div>
-                  <div class="badge-soft">
-                    ▲ 1년간 성장 지수 +10점 · AI·디지털 역량 등급 상향
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title">역량별 성장 지표(요약)</div>
-            </div>
-            <div class="card-body">
-              <div class="stat-grid">
-                <div class="stat-card">
-                  <div class="stat-label">수학 수업 설계·실행</div>
-                  <div class="stat-value">+9점</div>
-                  <div class="stat-chip">
-                    ● Lesson Study 기반 개선
-                  </div>
-                </div>
-                <div class="stat-card">
-                  <div class="stat-label">AI·디지털 활용</div>
-                  <div class="stat-value">+14점</div>
-                  <div class="stat-chip">
-                    ● AIDT·공학도구 통합
-                  </div>
-                </div>
-                <div class="stat-card">
-                  <div class="stat-label">학습 상담·코칭</div>
-                  <div class="stat-value">+7점</div>
-                  <div class="stat-chip">
-                    ● 부진 학생 맞춤 지도
-                  </div>
-                </div>
-              </div>
-              <p style="margin-top: 0.6rem; font-size: 0.78rem; color: var(--text-muted)">
-                성장 기록부는 추후 교원 평가·경력 개발, 학습공동체 활동, 시도교육청 연수 정책
-                설계 등에 활용될 수 있도록 <strong>표준화된 데이터 구조</strong>로 축적됩니다.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 관리자/정책 섹션 -->
-      <section class="section" id="admin">
-        <div class="section-header">
-          <div>
-            <div class="section-title">관리자(시도교육청) 화면 예시</div>
-            <div class="section-subtitle">
-              역량 진단·연수 이수 데이터를 바탕으로 수요 분석과 정책 결정을 지원합니다.
-            </div>
-          </div>
-        </div>
-
-        <div class="grid-2">
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title">역량 분포 및 수요 분석</div>
-              <span class="card-badge">정책 데이터</span>
-            </div>
-            <div class="card-body">
-              <div class="stat-grid">
-                <div class="stat-card">
-                  <div class="stat-label">AI·디지털 역량 ‘개선 필요’</div>
-                  <div class="stat-value">38%</div>
-                  <div class="stat-chip">
-                    우선 지원 군 선정
-                  </div>
-                </div>
-                <div class="stat-card">
-                  <div class="stat-label">수업 설계·실행 ‘우수’</div>
-                  <div class="stat-value">21%</div>
-                  <div class="stat-chip">
-                    모범 사례 발굴
-                  </div>
-                </div>
-                <div class="stat-card">
-                  <div class="stat-label">코칭 모듈 수요</div>
-                  <div class="stat-value">+47%</div>
-                  <div class="stat-chip">
-                    신규 모듈 개발 필요
-                  </div>
-                </div>
-              </div>
-              <p style="margin-top: 0.7rem; font-size: 0.78rem; color: var(--text-muted)">
-                관리자 화면에서는 학교급·지역·경력별로 필터링하여 세부 수요 분석을 수행하고,
-                우선 지원 대상군, 신규 모듈 개발 영역, 예산 배분 전략 등을 수립할 수 있습니다.
-              </p>
-            </div>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <div class="card-title">플랫폼 운영·정책 연계 기능</div>
-            </div>
-            <div class="card-body">
-              <div class="admin-actions">
-                <div class="admin-chip">국가 표준 역량 체계 관리</div>
-                <div class="admin-chip">모듈형 연수 표준안 등록·승인</div>
-                <div class="admin-chip">Lesson Study 결과 아카이브</div>
-                <div class="admin-chip">연수·역량 데이터 보고서 출력</div>
-                <div class="admin-chip">나이스 연수 이력 연동 설정</div>
-                <div class="admin-chip">교원학습공동체 활동 연계</div>
-              </div>
-              <p style="margin-top: 0.6rem; font-size: 0.78rem; color: var(--text-muted)">
-                실제 시스템 구축 시에는 인증 체계, 개인정보 보호, 데이터 활용 동의 절차 등을
-                포함한 <strong>법·제도적 장치</strong>가 함께 설계되어야 합니다.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="footer-inner">
-        <div>
-          © 2025 역량 중심 성장형 수학 교원 연수 체제 구축 방안 연구  
-          <span style="display: block">본 페이지는 정책 연구용 시안(UI/UX) 예시입니다.</span>
-        </div>
-        <div class="footer-links">
-          <a href="#hero">플랫폼 개요</a>
-          <a href="#diagnosis">역량 진단</a>
-          <a href="#modules">모듈 예시</a>
-          <a href="#admin">정책·관리</a>
+        <div class="hero-actions">
+          <!-- 이 버튼이 실제 진단 기능을 호출 -->
+          <button type="button" class="btn-primary" id="hero-diagnose-btn">
+            역량 진단하기
+          </button>
+          <a href="#download" class="btn-outline">진단도구 안내서 다운로드</a>
         </div>
       </div>
-    </footer>
-  </div>
 
-  <script>
-    // 단순 데모용 진단 결과 업데이트 스크립트
-    function updateDiagnosis(showToast) {
-      const digital = Number(
-        document.getElementById("digitalScore").value || 3
-      );
-      const coaching = Number(
-        document.getElementById("coachingScore").value || 3
-      );
-
-      const avg = (digital + coaching) / 2;
-      let focusText = "";
-      let stage = "";
-
-      if (digital <= 2 && coaching >= 3) {
-        focusText = "AI·디지털 수업 설계 역량 강화가 우선 필요합니다.";
-        stage = "이해 단계 모듈 중심 추천";
-      } else if (digital >= 4 && coaching <= 3) {
-        focusText = "학습 상담·코칭 역량 심화가 권장됩니다.";
-        stage = "활용 단계 코칭 모듈 추천";
-      } else if (avg >= 4) {
-        focusText = "두 영역 모두 비교적 안정적입니다. 성찰 중심 모듈로의 이행이 적절합니다.";
-        stage = "성찰 단계 모듈 추천";
-      } else {
-        focusText = "두 영역 모두 기초 역량을 넓히는 단계가 필요합니다.";
-        stage = "이해→활용 단계 모듈 혼합 추천";
-      }
-
-      const html = `
-        선택하신 값에 기반한 <strong>간단 프로파일</strong>입니다.<br /><br />
-        • AI·디지털 활용 자신도: <strong>${digital} / 5</strong><br />
-        • 학습 상담·코칭 자신도: <strong>${coaching} / 5</strong><br />
-        • 평균 수준(데모): <strong>${avg.toFixed(1)} / 5</strong><br />
-        <div class="diagnosis-highlight" style="margin-top:0.5rem;">
-          • 진단 해석(예시): ${focusText}<br />
-          • 권장 성장 경로: <strong>${stage}</strong>
+      <aside class="hero-card">
+        <h2>플랫폼 구성 개요</h2>
+        <p>이 예시는 최종 보고서 제6장의 “모듈형 연수 통합형 플랫폼(홈페이지) 구축 예시”에서 제시할 수 있는 기본 와이어프레임 수준의 샘플입니다.</p>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <strong>1단계: 역량 진단</strong>
+            <span>5개 역량군 × 45문항 자가 진단</span>
+          </div>
+          <div class="hero-stat">
+            <strong>2단계: 맞춤 모듈 추천</strong>
+            <span>역량별 점수에 따른 모듈 연수 경로 설계</span>
+          </div>
+          <div class="hero-stat">
+            <strong>3단계: 이수·성찰 기록</strong>
+            <span>연수 이력, 수업 연구, 성찰 결과 기록</span>
+          </div>
+          <div class="hero-stat">
+            <strong>4단계: 데이터 기반 환류</strong>
+            <span>연수-수업-학생 데이터 연계 분석</span>
+          </div>
         </div>
-        <div class="pill-list">
-          <div class="pill-tag">AI 디지털교과서 기반 수업 설계</div>
-          <div class="pill-tag">데이터 기반 맞춤형 피드백</div>
-          <div class="pill-tag">학생 질문·오류 분석 코칭</div>
-          <div class="pill-tag">Lesson Study 성찰 루틴</div>
+      </aside>
+    </section>
+
+    <!-- 다운로드 섹션 -->
+    <section id="download" class="section">
+      <div class="section-header">
+        <h2 class="section-title">진단도구 안내서 및 양식 다운로드(예시)</h2>
+        <p class="section-subtitle">실제 구축 시, 아래 링크에 PDF·한글 파일 등을 연결하여 교원이 진단도구 매뉴얼과 문항집을 내려받을 수 있습니다.</p>
+      </div>
+      <div class="card">
+        <ul style="margin:0; padding-left:1.1rem; font-size:0.88rem;">
+          <li><a href="#" download>수학 교원 역량 진단도구(MTCDT) 안내서 PDF</a></li>
+          <li><a href="#" download>자가 진단 문항 목록 및 채점표(hwp/word)</a></li>
+          <li><a href="#" download>모듈형 연수 표준안 요약본</a></li>
+        </ul>
+        <p style="margin-top:0.7rem; font-size:0.8rem; color:var(--muted);">
+          ※ 실제 보고서/시스템에서는 위 링크에 해당 기관 서버의 실제 파일 경로를 연결하면 됩니다.
+        </p>
+      </div>
+    </section>
+
+    <!-- MTCDT 진단 도구 -->
+    <section id="diagnostic-tool" class="section">
+      <div class="section-header">
+        <h2 class="section-title">수학 교원 역량 진단 도구(MTCDT)</h2>
+        <p class="section-subtitle">
+          5개 역량군, 3단계(이해-활용-성찰), 총 45개 문항으로 구성된 자가 진단 도구입니다.
+          아래 문항에 응답한 뒤 <strong>“역량 진단하기”</strong> 버튼을 누르면 자동으로 역량별 평균 점수와 간단 해석이 제시됩니다.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="pill">
+          ● 역량 진단
+          <span style="font-weight:400;">자가 평가용 리커트 5점 척도</span>
         </div>
-      `;
-      document.getElementById("diagnosisResult").innerHTML = html;
+        <p class="legend">
+          각 문항에 대해 현재 자신의 수준을 선택해 주세요. (1 = 전혀 그렇지 않다, 2 = 그렇지 않은 편이다,
+          3 = 보통이다, 4 = 대체로 그렇다, 5 = 매우 그렇다)
+        </p>
 
-      if (showToast) {
-        console.log("진단 결과가 업데이트되었습니다 (데모).");
-      }
+        <form id="diagnostic-form">
+          <!-- 1) 수학 내용 지식 탐구 역량 -->
+          <div class="competency-group" data-cluster="1">
+            <h3 class="competency-title">1) 수학 내용 지식 탐구 역량</h3>
+            <p class="competency-meta">
+              수학의 핵심 개념·원리·내용 구조를 깊이 이해하고, 교수·학습 이론과 평가 원리에 대한 지식을 바탕으로
+              학생의 인지 특성과 오개념을 분석하여 학생과 맥락에 맞게 적용할 수 있는 능력
+            </p>
 
-      // 상단 성장 지수 바도 약간 변화시키는 데모
-      const growthPercent = 60 + avg * 5;
-      document.getElementById("growthPercent").textContent =
-        growthPercent.toFixed(0) + "%";
-      document.getElementById("growthBar").style.width =
-        growthPercent.toFixed(0) + "%";
-    }
+            <p class="stage-label">[이해 단계]</p>
 
-    // 초기 호출
-    updateDiagnosis(false);
-  </script>
-</body>
-</html>
+            <div class="question" data-cluster="1" data-code="1-1">
+              <p class="question-text"><span class="q-code">1-1.</span> 나는 수학 개념과 원리의 핵심 아이디어와 위계 구조를 논리적으로 분석·이해하고 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q1_1" value="1">1</label>
+                <label><input type="radio" name="q1_1" value="2">2</label>
+                <label><input type="radio" name="q1_1" value="3">3</label>
+                <label><input type="radio" name="q1_1" value="4">4</label>
+                <label><input type="radio" name="q1_1" value="5">5</label>
+              </div>
+            </div>
+
+            <div class="question" data-cluster="1" data-code="1-2">
+              <p class="question-text"><span class="q-code">1-2.</span> 나는 수학 교수·학습 이론과 평가 원리를 수업 설계에 적용할 수 있을 정도로 이해하고 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q1_2" value="1">1</label>
+                <label><input type="radio" name="q1_2" value="2">2</label>
+                <label><input type="radio" name="q1_2" value="3">3</label>
+                <label><input type="radio" name="q1_2" value="4">4</label>
+                <label><input type="radio" name="q1_2" value="5">5</label>
+              </div>
+            </div>
+
+            <div class="question" data-cluster="1" data-code="1-3">
+              <p class="question-text"><span class="q-code">1-3.</span> 나는 학생들의 인지 발달 특성과 대표적인 오개념 유형을 이론적으로 이해하고 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q1_3" value="1">1</label>
+                <label><input type="radio" name="q1_3" value="2">2</label>
+                <label><input type="radio" name="q1_3" value="3">3</label>
+                <label><input type="radio" name="q1_3" value="4">4</label>
+                <label><input type="radio" name="q1_3" value="5">5</label>
+              </div>
+            </div>
+
+            <p class="stage-label">[활용 단계]</p>
+
+            <div class="question" data-cluster="1" data-code="1-4">
+              <p class="question-text"><span class="q-code">1-4.</span> 나는 수학 개념과 원리를 학생의 수준과 맥락에 맞게 시각화·모델링 전략으로 제시·설명할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q1_4" value="1">1</label>
+                <label><input type="radio" name="q1_4" value="2">2</label>
+                <label><input type="radio" name="q1_4" value="3">3</label>
+                <label><input type="radio" name="q1_4" value="4">4</label>
+                <label><input type="radio" name="q1_4" value="5">5</label>
+              </div>
+            </div>
+
+            <div class="question" data-cluster="1" data-code="1-5">
+              <p class="question-text"><span class="q-code">1-5.</span> 나는 수학 교육학적 원리를 기반으로 수업 상황에 맞는 교수 전략을 구성할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q1_5" value="1">1</label>
+                <label><input type="radio" name="q1_5" value="2">2</label>
+                <label><input type="radio" name="q1_5" value="3">3</label>
+                <label><input type="radio" name="q1_5" value="4">4</label>
+                <label><input type="radio" name="q1_5" value="5">5</label>
+              </div>
+            </div>
+
+            <div class="question" data-cluster="1" data-code="1-6">
+              <p class="question-text"><span class="q-code">1-6.</span> 나는 학생의 인지 특성과 학습 맥락을 고려하여 오개념을 분석·교정하고 지도 전략을 설계할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q1_6" value="1">1</label>
+                <label><input type="radio" name="q1_6" value="2">2</label>
+                <label><input type="radio" name="q1_6" value="3">3</label>
+                <label><input type="radio" name="q1_6" value="4">4</label>
+                <label><input type="radio" name="q1_6" value="5">5</label>
+              </div>
+            </div>
+
+            <p class="stage-label">[성찰 단계]</p>
+
+            <div class="question" data-cluster="1" data-code="1-7">
+              <p class="question-text"><span class="q-code">1-7.</span> 나는 수업 후 학생들의 개념 이해를 정확성과 논리성의 관점에서 반성적으로 점검할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q1_7" value="1">1</label>
+                <label><input type="radio" name="q1_7" value="2">2</label>
+                <label><input type="radio" name="q1_7" value="3">3</label>
+                <label><input type="radio" name="q1_7" value="4">4</label>
+                <label><input type="radio" name="q1_7" value="5">5</label>
+              </div>
+            </div>
+
+            <div class="question" data-cluster="1" data-code="1-8">
+              <p class="question-text"><span class="q-code">1-8.</span> 나는 적용한 교수·학습 이론과 평가 방법이 수업 효과에 미친 영향을 자료를 기반으로 분석·성찰할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q1_8" value="1">1</label>
+                <label><input type="radio" name="q1_8" value="2">2</label>
+                <label><input type="radio" name="q1_8" value="3">3</label>
+                <label><input type="radio" name="q1_8" value="4">4</label>
+                <label><input type="radio" name="q1_8" value="5">5</label>
+              </div>
+            </div>
+
+            <div class="question" data-cluster="1" data-code="1-9">
+              <p class="question-text"><span class="q-code">1-9.</span> 나는 학생 반응을 바탕으로 오개념 교정 여부를 평가하고, 수업 재설계 및 보완 전략을 도출할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q1_9" value="1">1</label>
+                <label><input type="radio" name="q1_9" value="2">2</label>
+                <label><input type="radio" name="q1_9" value="3">3</label>
+                <label><input type="radio" name="q1_9" value="4">4</label>
+                <label><input type="radio" name="q1_9" value="5">5</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2) 수학 교수·학습 설계 및 실행 역량 -->
+          <div class="competency-group" data-cluster="2">
+            <h3 class="competency-title">2) 수학 교수·학습 설계 및 실행 역량</h3>
+            <p class="competency-meta">
+              교육과정의 성취기준에 따라 학습 목표와 평가계획을 함께 설정하고, 이를 바탕으로 수업을 구조화·재구성하며,
+              효과적으로 실행하고 평가와 피드백을 통해 학습 개선을 지원하는 능력
+            </p>
+
+            <p class="stage-label">[이해 단계]</p>
+
+            <div class="question" data-cluster="2" data-code="2-1">
+              <p class="question-text"><span class="q-code">2-1.</span> 나는 교육과정, 수업, 평가 간의 정합성을 설명할 수 있으며, 성취기준을 기반으로 수업 목표와 평가 계획을 설정할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q2_1" value="1">1</label>
+                <label><input type="radio" name="q2_1" value="2">2</label>
+                <label><input type="radio" name="q2_1" value="3">3</label>
+                <label><input type="radio" name="q2_1" value="4">4</label>
+                <label><input type="radio" name="q2_1" value="5">5</label>
+              </div>
+            </div>
+
+            <div class="question" data-cluster="2" data-code="2-2">
+              <p class="question-text"><span class="q-code">2-2.</span> 나는 수학 교육과정을 해석하여 학생 수준에 맞게 수업 내용을 구조화·재구성할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q2_2" value="1">1</label>
+                <label><input type="radio" name="q2_2" value="2">2</label>
+                <label><input type="radio" name="q2_2" value="3">3</label>
+                <label><input type="radio" name="q2_2" value="4">4</label>
+                <label><input type="radio" name="q2_2" value="5">5</label>
+              </div>
+            </div>
+
+            <div class="question" data-cluster="2" data-code="2-3">
+              <p class="question-text"><span class="q-code">2-3.</span> 나는 수학 수업 실행 시 학생 반응에 따라 적용 가능한 피드백 전략을 이해하고 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q2_3" value="1">1</label>
+                <label><input type="radio" name="q2_3" value="2">2</label>
+                <label><input type="radio" name="q2_3" value="3">3</label>
+                <label><input type="radio" name="q2_3" value="4">4</label>
+                <label><input type="radio" name="q2_3" value="5">5</label>
+              </div>
+            </div>
+
+            <p class="stage-label">[활용 단계]</p>
+
+            <div class="question" data-cluster="2" data-code="2-4">
+              <p class="question-text"><span class="q-code">2-4.</span> 나는 성취기준을 바탕으로 학습 목표와 평가 계획을 실제 수업 활동에 반영할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q2_4" value="1">1</label>
+                <label><input type="radio" name="q2_4" value="2">2</label>
+                <label><input type="radio" name="q2_4" value="3">3</label>
+                <label><input type="radio" name="q2_4" value="4">4</label>
+                <label><input type="radio" name="q2_4" value="5">5</label>
+              </div>
+            </div>
+
+            <div class="question" data-cluster="2" data-code="2-5">
+              <p class="question-text"><span class="q-code">2-5.</span> 나는 학생의 출발점 행동과 학습 맥락에 맞게 교육과정을 구조화·재구성하여 수업을 설계할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q2_5" value="1">1</label>
+                <label><input type="radio" name="q2_5" value="2">2</label>
+                <label><input type="radio" name="q2_5" value="3">3</label>
+                <label><input type="radio" name="q2_5" value="4">4</label>
+                <label><input type="radio" name="q2_5" value="5">5</label>
+              </div>
+            </div>
+
+            <div class="question" data-cluster="2" data-code="2-6">
+              <p class="question-text"><span class="q-code">2-6.</span> 나는 수업 실행 과정에서 학생 반응을 바탕으로 형성평가를 실시하고, 이에 따른 피드백을 제공할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q2_6" value="1">1</label>
+                <label><input type="radio" name="q2_6" value="2">2</label>
+                <label><input type="radio" name="q2_6" value="3">3</label>
+                <label><input type="radio" name="q2_6" value="4">4</label>
+                <label><input type="radio" name="q2_6" value="5">5</label>
+              </div>
+            </div>
+
+            <p class="stage-label">[성찰 단계]</p>
+
+            <div class="question" data-cluster="2" data-code="2-7">
+              <p class="question-text"><span class="q-code">2-7.</span> 나는 수업 후 성취기준 달성 정도와 평가 결과를 분석하여 교수·학습 방법의 적절성을 점검하고 개선 방안을 도출할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q2_7" value="1">1</label>
+                <label><input type="radio" name="q2_7" value="2">2</label>
+                <label><input type="radio" name="q2_7" value="3">3</label>
+                <label><input type="radio" name="q2_7" value="4">4</label>
+                <label><input type="radio" name="q2_7" value="5">5</label>
+              </div>
+            </div>
+
+            <div class="question" data-cluster="2" data-code="2-8">
+              <p class="question-text"><span class="q-code">2-8.</span> 나는 수업 과정에서 학생 반응을 분석하여 수업 구조와 흐름을 재구성할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q2_8" value="1">1</label>
+                <label><input type="radio" name="q2_8" value="2">2</label>
+                <label><input type="radio" name="q2_8" value="3">3</label>
+                <label><input type="radio" name="q2_8" value="4">4</label>
+                <label><input type="radio" name="q2_8" value="5">5</label>
+              </div>
+            </div>
+
+            <div class="question" data-cluster="2" data-code="2-9">
+              <p class="question-text"><span class="q-code">2-9.</span> 나는 학생 진단 결과를 바탕으로 학생 수준(오개념, 학습결손 등)에 맞는 수업을 재설계할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q2_9" value="1">1</label>
+                <label><input type="radio" name="q2_9" value="2">2</label>
+                <label><input type="radio" name="q2_9" value="3">3</label>
+                <label><input type="radio" name="q2_9" value="4">4</label>
+                <label><input type="radio" name="q2_9" value="5">5</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3) 수학 AI·디지털 수업 지원 및 활용 역량 -->
+          <div class="competency-group" data-cluster="3">
+            <h3 class="competency-title">3) 수학 AI·디지털 수업 지원 및 활용 역량</h3>
+            <p class="competency-meta">
+              AI 및 디지털 도구의 기능과 원리, 학습 데이터 분석 및 윤리 원칙에 대한 이해를 바탕으로 수학 수업을 지원·개선하고,
+              디지털 윤리 관점에서 수업을 성찰·개선하는 능력
+            </p>
+
+            <p class="stage-label">[이해 단계]</p>
+
+            <div class="question" data-cluster="3" data-code="3-1">
+              <p class="question-text"><span class="q-code">3-1.</span> 나는 AI 및 디지털 도구의 주요 기능과 원리를 이해하고 있으며, 이를 수학 학습 지원에 어떻게 활용할 수 있는지 사례를 들어 설명할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q3_1" value="1">1</label>
+                <label><input type="radio" name="q3_1" value="2">2</label>
+                <label><input type="radio" name="q3_1" value="3">3</label>
+                <label><input type="radio" name="q3_1" value="4">4</label>
+                <label><input type="radio" name="q3_1" value="5">5</label>
+              </div>
+            </div>
+
+            <div class="question" data-cluster="3" data-code="3-2">
+              <p class="question-text"><span class="q-code">3-2.</span> 나는 수학 학습 데이터를 분석·해석하는 주요 개념과 절차를 이해하고 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q3_2" value="1">1</label>
+                <label><input type="radio" name="q3_2" value="2">2</label>
+                <label><input type="radio" name="q3_2" value="3">3</label>
+                <label><input type="radio" name="q3_2" value="4">4</label>
+                <label><input type="radio" name="q3_2" value="5">5</label>
+              </div>
+            </div>
+
+            <div class="question" data-cluster="3" data-code="3-3">
+              <p class="question-text"><span class="q-code">3-3.</span> 나는 AI·디지털 활용과 관련된 윤리 원칙이 수업 실행에서 어떻게 적용되는지를 이해하고 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q3_3" value="1">1</label>
+                <label><input type="radio" name="q3_3" value="2">2</label>
+                <label><input type="radio" name="q3_3" value="3">3</label>
+                <label><input type="radio" name="q3_3" value="4">4</label>
+                <label><input type="radio" name="q3_3" value="5">5</label>
+              </div>
+            </div>
+
+            <p class="stage-label">[활용 단계]</p>
+
+            <div class="question" data-cluster="3" data-code="3-4">
+              <p class="question-text"><span class="q-code">3-4.</span> 나는 성취기준에 맞추어 AI·디지털 도구를 적절히 통합하여 수학 학습 자료를 설계할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q3_4" value="1">1</label>
+                <label><input type="radio" name="q3_4" value="2">2</label>
+                <label><input type="radio" name="q3_4" value="3">3</label>
+                <label><input type="radio" name="q3_4" value="4">4</label>
+                <label><input type="radio" name="q3_4" value="5">5</label>
+              </div>
+            </div>
+
+            <div class="question" data-cluster="3" data-code="3-5">
+              <p class="question-text"><span class="q-code">3-5.</span> 나는 학생들의 학습 과정과 결과를 바탕으로 데이터를 수집·분석하여 피드백을 제공하고, 이를 수업 개선에 활용할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q3_5" value="1">1</label>
+                <label><input type="radio" name="q3_5" value="2">2</label>
+                <label><input type="radio" name="q3_5" value="3">3</label>
+                <label><input type="radio" name="q3_5" value="4">4</label>
+                <label><input type="radio" name="q3_5" value="5">5</label>
+              </div>
+            </div>
+
+            <div class="question" data-cluster="3" data-code="3-6">
+              <p class="question-text"><span class="q-code">3-6.</span> 나는 수업 실행 과정에서 디지털 윤리 원칙을 고려하여 학생 보호와 책임 있는 기술 사용을 실천할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q3_6" value="1">1</label>
+                <label><input type="radio" name="q3_6" value="2">2</label>
+                <label><input type="radio" name="q3_6" value="3">3</label>
+                <label><input type="radio" name="q3_6" value="4">4</label>
+                <label><input type="radio" name="q3_6" value="5">5</label>
+              </div>
+            </div>
+
+            <p class="stage-label">[성찰 단계]</p>
+
+            <div class="question" data-cluster="3" data-code="3-7">
+              <p class="question-text"><span class="q-code">3-7.</span> 나는 AI·디지털 도구를 적용한 수학 수업의 효과성을 평가하고 개선 방안을 모색할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q3_7" value="1">1</label>
+                <label><input type="radio" name="q3_7" value="2">2</label>
+                <label><input type="radio" name="q3_7" value="3">3</label>
+                <label><input type="radio" name="q3_7" value="4">4</label>
+                <label><input type="radio" name="q3_7" value="5">5</label>
+              </div>
+            </div>
+
+            <div class="question" data-cluster="3" data-code="3-8">
+              <p class="question-text"><span class="q-code">3-8.</span> 나는 수업 중 수집한 데이터 분석을 통해 수업 지원의 적절성과 한계를 성찰할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q3_8" value="1">1</label>
+                <label><input type="radio" name="q3_8" value="2">2</label>
+                <label><input type="radio" name="q3_8" value="3">3</label>
+                <label><input type="radio" name="q3_8" value="4">4</label>
+                <label><input type="radio" name="q3_8" value="5">5</label>
+              </div>
+            </div>
+
+            <div class="question" data-cluster="3" data-code="3-9">
+              <p class="question-text"><span class="q-code">3-9.</span> 나는 AI·디지털 도구를 활용한 수업 과정에서 윤리적 문제의 발생 가능성을 점검하고, 이를 예방하고 개선하기 위한 방안을 탐색할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q3_9" value="1">1</label>
+                <label><input type="radio" name="q3_9" value="2">2</label>
+                <label><input type="radio" name="q3_9" value="3">3</label>
+                <label><input type="radio" name="q3_9" value="4">4</label>
+                <label><input type="radio" name="q3_9" value="5">5</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4) 수학 학습 상담 및 코칭 역량 -->
+          <div class="competency-group" data-cluster="4">
+            <h3 class="competency-title">4) 수학 학습 상담 및 코칭 역량</h3>
+            <p class="competency-meta">
+              학생의 수학 학습 상황, 정서·사회적 요인, 진로·흥미와 연계된 지도 등을 바탕으로 학습 상담 및 코칭을 수행하고
+              그 효과를 성찰·개선하는 능력
+            </p>
+
+            <p class="stage-label">[이해 단계]</p>
+
+            <div class="question" data-cluster="4" data-code="4-1">
+              <p class="question-text"><span class="q-code">4-1.</span> 나는 학생의 수학 학습 상황과 오류를 진단하는 방법을 설명할 수 있으며, 이를 토대로 필요한 지원 방향을 설정할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q4_1" value="1">1</label>
+                <label><input type="radio" name="q4_1" value="2">2</label>
+                <label><input type="radio" name="q4_1" value="3">3</label>
+                <label><input type="radio" name="q4_1" value="4">4</label>
+                <label><input type="radio" name="q4_1" value="5">5</label>
+              </div>
+            </div>
+
+            <div class="question" data-cluster="4" data-code="4-2">
+              <p class="question-text"><span class="q-code">4-2.</span> 나는 수학 학습 과정에서 학생의 흥미, 동기, 자신감 등 정서·사회적 요인이 학습에 미치는 영향을 구체적으로 사례를 들어 설명할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q4_2" value="1">1</label>
+                <label><input type="radio" name="q4_2" value="2">2</label>
+                <label><input type="radio" name="q4_2" value="3">3</label>
+                <label><input type="radio" name="q4_2" value="4">4</label>
+                <label><input type="radio" name="q4_2" value="5">5</label>
+              </div>
+            </div>
+
+            <div class="question" data-cluster="4" data-code="4-3">
+              <p class="question-text"><span class="q-code">4-3.</span> 나는 학생의 수학 학습 경험을 진로 탐색이나 흥미와 연계하여 지도할 필요성과 방법을 구체적으로 설명할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q4_3" value="1">1</label>
+                <label><input type="radio" name="q4_3" value="2">2</label>
+                <label><input type="radio" name="q4_3" value="3">3</label>
+                <label><input type="radio" name="q4_3" value="4">4</label>
+                <label><input type="radio" name="q4_3" value="5">5</label>
+              </div>
+            </div>
+
+            <p class="stage-label">[활용 단계]</p>
+
+            <div class="question" data-cluster="4" data-code="4-4">
+              <p class="question-text"><span class="q-code">4-4.</span> 나는 학생의 학습 수준과 오류를 분석하여, 그에 맞는 질문·발문·피드백 전략을 수업에 적용할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q4_4" value="1">1</label>
+                <label><input type="radio" name="q4_4" value="2">2</label>
+                <label><input type="radio" name="q4_4" value="3">3</label>
+                <label><input type="radio" name="q4_4" value="4">4</label>
+                <label><input type="radio" name="q4_4" value="5">5</label>
+              </div>
+            </div>
+
+            <div class="question" data-cluster="4" data-code="4-5">
+              <p class="question-text"><span class="q-code">4-5.</span> 나는 학생의 정서적·사회적 요인을 고려하여 학습 참여와 동기를 촉진하는 맞춤형 지원을 제공할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q4_5" value="1">1</label>
+                <label><input type="radio" name="q4_5" value="2">2</label>
+                <label><input type="radio" name="q4_5" value="3">3</label>
+                <label><input type="radio" name="q4_5" value="4">4</label>
+                <label><input type="radio" name="q4_5" value="5">5</label>
+              </div>
+            </div>
+
+            <div class="question" data-cluster="4" data-code="4-6">
+              <p class="question-text"><span class="q-code">4-6.</span> 나는 학생의 흥미와 관심사를 반영하여 수학 학습 활동을 구성하고, 학습 목표와 연계된 지도 방안을 적용할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q4_6" value="1">1</label>
+                <label><input type="radio" name="q4_6" value="2">2</label>
+                <label><input type="radio" name="q4_6" value="3">3</label>
+                <label><input type="radio" name="q4_6" value="4">4</label>
+                <label><input type="radio" name="q4_6" value="5">5</label>
+              </div>
+            </div>
+
+            <p class="stage-label">[성찰 단계]</p>
+
+            <div class="question" data-cluster="4" data-code="4-7">
+              <p class="question-text"><span class="q-code">4-7.</span> 나는 수학 학습 상담 및 코칭 후 학생의 학습 태도와 성취 변화를 분석하여 효과를 평가할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q4_7" value="1">1</label>
+                <label><input type="radio" name="q4_7" value="2">2</label>
+                <label><input type="radio" name="q4_7" value="3">3</label>
+                <label><input type="radio" name="q4_7" value="4">4</label>
+                <label><input type="radio" name="q4_7" value="5">5</label>
+              </div>
+            </div>
+
+            <div class="question" data-cluster="4" data-code="4-8">
+              <p class="question-text"><span class="q-code">4-8.</span> 나는 학생 반응을 근거로 정서적 지원과 진로 연계 또는 흥미 기반 지도의 적절성을 평가하고 개선할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q4_8" value="1">1</label>
+                <label><input type="radio" name="q4_8" value="2">2</label>
+                <label><input type="radio" name="q4_8" value="3">3</label>
+                <label><input type="radio" name="q4_8" value="4">4</label>
+                <label><input type="radio" name="q4_8" value="5">5</label>
+              </div>
+            </div>
+
+            <div class="question" data-cluster="4" data-code="4-9">
+              <p class="question-text"><span class="q-code">4-9.</span> 나는 상담 및 코칭 경험을 바탕으로 적용한 전략의 타당성을 분석하고 새로운 지원 방안을 재구성할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q4_9" value="1">1</label>
+                <label><input type="radio" name="q4_9" value="2">2</label>
+                <label><input type="radio" name="q4_9" value="3">3</label>
+                <label><input type="radio" name="q4_9" value="4">4</label>
+                <label><input type="radio" name="q4_9" value="5">5</label>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5) 성장 중심 수학 수업 성찰 및 개선 역량 -->
+          <div class="competency-group" data-cluster="5">
+            <h3 class="competency-title">5) 성장 중심 수학 수업 성찰 및 개선 역량</h3>
+            <p class="competency-meta">
+              수업 성찰·평가 도구와 다양한 성찰 방법을 활용하여 수업의 강점과 개선점을 분석하고, 동료와의 공유를 통해
+              지속적인 전문성 성장을 도모하는 능력
+            </p>
+
+            <p class="stage-label">[이해 단계]</p>
+
+            <div class="question" data-cluster="5" data-code="5-1">
+              <p class="question-text"><span class="q-code">5-1.</span> 나는 수업 성찰·평가 도구의 종류와 활용 절차를 구분하여 설명할 수 있다.</p>
+              <div class="scale">
+                <label><input type="radio" name="q5_1" value="1">1</label>
+                <label><input type="radio" name="q5_1" value="2">2</label>
+                <label><input type="radio" name="q5_1" value="3">3</label>
+                <label><input type="radio" name="q5_1" value="4">4</label>
+                <labe
